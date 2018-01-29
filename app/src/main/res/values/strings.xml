@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">CrediHugo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="header_credits_empty">Aqui se mostratran tus creditos.</string>
+    <string name="title_activity_credit_form">CreditForm</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nombre_credito">Nombre:</string>
+    <string name="monto_credito">Monto:</string>
+    <string name="interes_anual">Interés anual(%):</string>
+    <string name="seleccion_mensual">Mensual</string>
+    <string name="seleccion_quincenal">Quincenal</string>
+    <string name="tipo_pago">Tipo de pago:</string>
+    <string name="numero_pagos">No. de pagos:</string>
+    <string name="nuevo_credito">Nuevo credito</string>
+    <string name="title_activity_new_creditt">NewCredittActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="fecha_pago">Fecha de pago:</string>
+    <string name="boton_guardar">Guardar</string>
+
+    <string name="monto_credito_detalle">Total de la deuda: %s</string>
+    <string name="interes_anual_detalle">Interés anual(%):</string>
+    <string name="tipo_pago_detalle">Tipo de pago: </string>
+    <string name="numero_pagos_detalle">No. de pagos: %s</string>
+    <string name="fecha_de_pagos_detalle">Fecha de pago: %s</string>
+</resources>

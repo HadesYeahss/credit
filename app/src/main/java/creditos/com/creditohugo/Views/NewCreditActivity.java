@@ -1,0 +1,131 @@
+package creditos.com.creditohugo.Views;
+
+import android.app.DatePickerDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+import creditos.com.creditohugo.Controllers.NewCreditControler;
+import creditos.com.creditohugo.Objects.Cotizacion;
+import creditos.com.creditohugo.R;
+
+public class NewCreditActivity extends AppCompatActivity
+        implements View.OnClickListener, NewCreditControler.NewCreditIterface {
+
+    private NewCreditControler mController;
+    private Calendar mCalendar;
+    private DatePickerDialog.OnDateSetListener mDate;
+    private Toolbar mToolbar;
+    public static final int RESULT_NEW_ID = 1;
+
+    /*Campos de el formulario*/
+    private EditText mName;
+    private EditText mAmount;
+    private EditText mInterest;
+    private EditText mNoPayments;
+    private RadioGroup mTypePayment;
+    private RadioButton mMensual;
+    private RadioButton mQuincenal;
+    private EditText mDatePayment;
+    private Button mGuardar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_credit);
+        mController = new NewCreditControler(this);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar_new_credit);
+        setSupportActionBar(mToolbar);
+        mCalendar = Calendar.getInstance();
+        mName = (EditText) findViewById(R.id.edit_text_credit_name);
+        mAmount = (EditText) findViewById(R.id.edit_text_amount);
+        mInterest = (EditText) findViewById(R.id.edit_text_annual_interest);
+        mNoPayments = (EditText) findViewById(R.id.edit_text_number_of_payments);
+        mTypePayment = (RadioGroup) findViewById(R.id.tipo_pago);
+        mMensual = (RadioButton) findViewById(R.id.radio_button_mensual);
+        mQuincenal = (RadioButton) findViewById(R.id.radio_button_quincenal);
+        mDatePayment = (EditText) findViewById(R.id.edit_text_date_of_payments);
+        mGuardar = (Button) findViewById(R.id.btn_guardar);
+        mGuardar.setOnClickListener(this);
+        // set calendar date and update editDate
+        mDate = new DatePickerDialog.OnDateSetListener() {
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                mCalendar.set(Calendar.YEAR, year);
+                mCalendar.set(Calendar.MONTH, monthOfYear);
+                mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+
+        };
+        mDatePayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(NewCreditActivity.this, mDate, mCalendar
+                        .get(Calendar.YEAR), mCalendar.get(Calendar.MONTH),
+                        mCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+
+    private void updateLabel() {
+        String myFormat = "MM/dd/yy"; //In which you need put here
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        mDatePayment.setText(sdf.format(mCalendar.getTime()));
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_guardar:
+                if (validateFields()) {
+                    Cotizacion cotizacion = new Cotizacion();
+                    cotizacion.setName(mName.getText().toString());
+                    cotizacion.setAmount(Double.parseDouble(mAmount.getText().toString()));
+                    cotizacion.setInterest(Double.parseDouble(mInterest.getText().toString()));
+                    cotizacion.setNoPayments(Integer.parseInt(mNoPayments.getText().toString()));
+                    cotizacion.setTypePayment(true);
+                    long dateMil = mCalendar.getTimeInMillis();
+                    if (mMensual.isChecked()) {
+                        cotizacion.setTypePayment(true);
+                    } else {
+                        cotizacion.setTypePayment(false);
+                    }
+                    cotizacion.setTypePayment(false);
+                    Date date = new Date(dateMil);
+                    cotizacion.setDatePayment(date);
+                    mController.createCotizacion(cotizacion);
+                }
+                break;
+        }
+    }
+
+    private boolean validateFields() {
+        return true;
+    }
+
+    @Override
+    public void saveComplete(boolean isSave) {
+        Intent data = new Intent();
+        data.putExtra("isSave", isSave);
+        setResult(RESULT_OK, data);
+        finish();
+    }
+
+
+}

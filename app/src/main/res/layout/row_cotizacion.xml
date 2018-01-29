@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_container_cotizacion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow_header"
+    android:elevation="2dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagen_tipo_poliza"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="16dp"
+            android:background="@mipmap/ic_launcher_round"
+            android:focusable="false"
+            android:gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.90"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:id="@+id/rv_cotizacion_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/blue_text"
+                android:textSize="14dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/rv_cotizacion_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:paddingRight="18dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/perl_green"
+                android:textSize="12sp"/>
+        </LinearLayout>
+       <!-- <FrameLayout
+            android:id="@+id/layout_boton_notificacion"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="@drawable/badge_bg">
+
+            <TextView
+                android:id="@+id/txv_badge_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="6dp"
+                android:text="1"
+                android:textColor="#FFFFFF" />
+        </FrameLayout>-->
+
+        <ImageView
+            android:id="@+id/poliza_row_siguiente"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginEnd="15dp"
+            android:src="@mipmap/shape_derecha"
+            android:focusable="false"
+            android:tint="@color/casper"
+            android:gravity="center_vertical"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/perl_green"/>
+</LinearLayout>

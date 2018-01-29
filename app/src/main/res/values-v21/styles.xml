@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="TemaHugo" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/ghost_white</item>
+        <item name="colorPrimaryDark">@color/quartz</item>
+        <item name="colorAccent">@color/perl_green</item>
+        <item name="android:colorBackground">@color/ghost_white</item>
+        <item name="android:textColorPrimary">@color/blue_text</item>
+        <item name="android:colorForeground">@color/casper</item>
+        <item name="android:textColorPrimaryInverse">@color/blue_text</item>
+        <item name="android:textColorSecondary">@color/blue_text</item>
+        <item name="android:textColorSecondaryInverse">@color/blue_text</item>
+        <item name="android:statusBarColor">@color/quartz</item>
+    </style>
+</resources>

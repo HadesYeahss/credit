@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ghost_white">#f5f5f5</color>
+    <color name="quartz">#e0dfe4</color>
+    <color name="columbia_blue">#ABDBF8</color>
+    <color name="link_water">#cfd2d9</color>
+    <color name="casper">#9abec2</color>
+    <color name="geraldine">#EE7A68</color>
+    <color name="perl_green">#21c1a4</color>
+    <color name="blue_text">#263656</color>
+
+    <color name="colorPrimary">@color/ghost_white</color>
+    <color name="colorPrimaryDark">@color/quartz</color>
+    <color name="colorAccent">#21c1a4</color>
+    <color name="textColorPrimary">#263656</color>
+    <color name="textColorPrimaryInverse">#263656</color>
+
+
+    <color name="colorWhite">#FFFFFF</color>
+</resources>
