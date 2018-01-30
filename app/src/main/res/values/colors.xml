@@ -9,12 +9,11 @@
     <color name="perl_green">#21c1a4</color>
     <color name="blue_text">#263656</color>
 
-    <color name="colorPrimary">@color/ghost_white</color>
-    <color name="colorPrimaryDark">@color/quartz</color>
-    <color name="colorAccent">#21c1a4</color>
-    <color name="textColorPrimary">#263656</color>
-    <color name="textColorPrimaryInverse">#263656</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
 
 
     <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBackground">#FEFEFE</color>
 </resources>

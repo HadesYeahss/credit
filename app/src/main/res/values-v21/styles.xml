@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="TemaHugo" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--<style name="TemaHugo" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/ghost_white</item>
         <item name="colorPrimaryDark">@color/quartz</item>
         <item name="colorAccent">@color/perl_green</item>
@@ -11,5 +11,5 @@
         <item name="android:textColorSecondary">@color/blue_text</item>
         <item name="android:textColorSecondaryInverse">@color/blue_text</item>
         <item name="android:statusBarColor">@color/quartz</item>
-    </style>
+    </style>-->
 </resources>

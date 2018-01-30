@@ -25,13 +25,14 @@ public class MainActivity extends AppCompatActivity
     private FragmentTransaction mFragmentTransaction;
     private FloatingActionButton mfab;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.bringToFront();
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mfab = (FloatingActionButton) findViewById(R.id.new_credit);
         mfab.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +107,5 @@ public class MainActivity extends AppCompatActivity
             }
         }
         //super.onActivityResult(requestCode, resultCode, data);
-
     }
 }

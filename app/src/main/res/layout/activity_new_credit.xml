@@ -34,7 +34,6 @@
             android:layout_weight="1"
             android:text="@string/nombre_credito"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"/>
 
         <EditText
@@ -44,7 +43,6 @@
             android:layout_weight="2"
             android:ems="20"
             android:inputType="textPersonName"
-            android:textColorHint="@color/textColorPrimary"
             android:textSize="14sp"/>
     </LinearLayout>
 
@@ -64,7 +62,6 @@
             android:layout_weight="1"
             android:text="@string/monto_credito"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"/>
 
         <EditText
@@ -94,7 +91,6 @@
             android:layout_weight="1"
             android:text="@string/interes_anual"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"
             />
 
@@ -125,7 +121,6 @@
             android:layout_weight="1"
             android:text="@string/numero_pagos"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"/>
 
         <EditText
@@ -155,7 +150,6 @@
             android:layout_weight="1"
             android:text="@string/tipo_pago"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"/>
 
         <RadioGroup
@@ -170,7 +164,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/seleccion_mensual"
-                android:textColor="@color/textColorPrimary"
                 android:textSize="14sp"/>
 
             <RadioButton
@@ -178,7 +171,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/seleccion_quincenal"
-                android:textColor="@color/textColorPrimary"
                 android:textSize="14sp"/>
         </RadioGroup>
     </LinearLayout>
@@ -199,7 +191,6 @@
             android:layout_weight="1"
             android:text="@string/fecha_pago"
             android:textAlignment="textEnd"
-            android:textColor="@color/textColorPrimary"
             android:textSize="14sp"/>
 
         <EditText
@@ -221,6 +212,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="@string/boton_guardar"
-        android:background="@color/perl_green"/>
+        android:text="@string/boton_guardar"/>
 </LinearLayout>
