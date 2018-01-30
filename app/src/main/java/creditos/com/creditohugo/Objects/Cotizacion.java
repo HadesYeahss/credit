@@ -21,7 +21,7 @@ public class Cotizacion implements Serializable {
     @DatabaseField
     private int noPayments;
     @DatabaseField
-    private boolean typePayment;
+    private int typePayment;
     @DatabaseField
     private Date datePayment;
 
@@ -68,11 +68,11 @@ public class Cotizacion implements Serializable {
         this.noPayments = aNoPayments;
     }
 
-    public boolean isTypePayment() {
+    public int getTypePayment() {
         return typePayment;
     }
 
-    public void setTypePayment(boolean aTypePayment) {
+    public void setTypePayment(int aTypePayment) {
         this.typePayment = aTypePayment;
     }
 

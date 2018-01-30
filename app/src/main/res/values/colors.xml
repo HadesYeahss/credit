@@ -16,4 +16,10 @@
 
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBackground">#FEFEFE</color>
+    <color name="colorBackground_form">#F9FAFC</color>
+
+    <color name="color_gradient_start">#F77062</color>
+    <color name="color_gradient_end">#FE5196</color>
+
+    #F77062
 </resources>

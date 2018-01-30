@@ -50,14 +50,15 @@ public class DetailCreditActivity extends AppCompatActivity implements DetailCre
         interes = interes.concat(" ").concat(sinteres);
         mInterest.setText(interes);
         String sNoPayments = String.valueOf(cotizacion.getNoPayments());
-        String NoPayments = getResources().getString(R.string.numero_pagos_detalle,sNoPayments);
-        mNoPayments.setText(NoPayments);
-        mTypePayments.setText(NoPayments);
+        String noPayments = getResources().getString(R.string.numero_pagos_detalle,sNoPayments);
+        mNoPayments.setText(noPayments);
         String tipo = getResources().getString(R.string.tipo_pago_detalle);
-        if(cotizacion.isTypePayment()){
+        if(cotizacion.getTypePayment() == 1){
             tipo = tipo.concat("Mensual");
-        }else{
+        }else if (cotizacion.getTypePayment() == 2){
            tipo = tipo.concat("Quincenal");
+        }else{
+            tipo = tipo.concat("Semanal");
         }
         mTypePayments.setText(tipo);
         mDatePayment.setText(cotizacion.getDatePayment().toString());

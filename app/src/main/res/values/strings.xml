@@ -11,19 +11,23 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nombre_credito">Nombre:</string>
-    <string name="monto_credito">Monto:</string>
-    <string name="interes_anual">Interés anual(%):</string>
-    <string name="seleccion_mensual">Mensual</string>
+
+    <!--formulario nueva cotizacion-->
+    <string name="nombre_credito">¿Para que es el prestamo?</string>
+    <string name="monto_credito">Monto</string>
+    <string name="interes_anual">Interés anual(%)</string>
+    <string name="numero_pagos">No. de pagos</string>
+    <string name="seleccion_semanal">Semanal</string>
     <string name="seleccion_quincenal">Quincenal</string>
-    <string name="tipo_pago">Tipo de pago:</string>
-    <string name="numero_pagos">No. de pagos:</string>
+    <string name="seleccion_mensual">Mensual</string>
+    <string name="fecha_de_pago">Fecha de Pago:</string>
+
     <string name="nuevo_credito">Nuevo credito</string>
     <string name="title_activity_new_creditt">NewCredittActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="fecha_pago">Fecha de pago:</string>
-    <string name="boton_guardar">Guardar</string>
+    <string name="boton_calcular">CALCULAR</string>
 
     <string name="monto_credito_detalle">Total de la deuda: %s</string>
     <string name="interes_anual_detalle">Interés anual(%):</string>
@@ -31,4 +35,18 @@
     <string name="numero_pagos_detalle">No. de pagos: %s</string>
     <string name="fecha_de_pagos_detalle">Fecha de pago: %s</string>
     <string name="dashboard">DASHBOARD</string>
+    <string name="alta_prestamo">CALCULAR PRESTAMO</string>
+    <string name="campo_invalido">Campo Invalido</string>
+
+    <string-array name="number_of_payments_array">
+        <item>No. de Pagos</item>
+        <item>6</item>
+        <item>9</item>
+        <item>12</item>
+        <item>18</item>
+        <item>24</item>
+        <item>48</item>
+        <item>60</item>
+        <item>120</item>
+    </string-array>
 </resources>
