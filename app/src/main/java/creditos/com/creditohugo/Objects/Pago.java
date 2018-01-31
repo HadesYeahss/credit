@@ -3,7 +3,6 @@ package creditos.com.creditohugo.Objects;
 import com.j256.ormlite.field.DatabaseField;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 /**
  * Created by rigoberto.torres on 26/01/2018.
@@ -31,7 +30,7 @@ public class Pago implements Serializable {
         return idPago;
     }
 
-    public void setIdPago(int idPago) {
+    public void setIdPago(int aIdPago) {
         this.idPago = idPago;
     }
 
@@ -39,7 +38,7 @@ public class Pago implements Serializable {
         return capitalTotal;
     }
 
-    public void setCapitalTotal(double capitalTotal) {
+    public void setCapitalTotal(double aCapitalTotal) {
         this.capitalTotal = capitalTotal;
     }
 
@@ -47,7 +46,7 @@ public class Pago implements Serializable {
         return pInteres;
     }
 
-    public void setpInteres(double pInteres) {
+    public void setpInteres(double aPInteres) {
         this.pInteres = pInteres;
     }
 
@@ -55,7 +54,7 @@ public class Pago implements Serializable {
         return pCapital;
     }
 
-    public void setpCapital(double pCapital) {
+    public void setpCapital(double aPCapital) {
         this.pCapital = pCapital;
     }
 
@@ -63,7 +62,7 @@ public class Pago implements Serializable {
         return pTotal;
     }
 
-    public void setpTotal(double pTotal) {
+    public void setpTotal(double aPTotal) {
         this.pTotal = pTotal;
     }
 
@@ -71,7 +70,7 @@ public class Pago implements Serializable {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(double aSaldo) {
         this.saldo = saldo;
     }
 
@@ -79,7 +78,7 @@ public class Pago implements Serializable {
         return adelanto;
     }
 
-    public void setAdelanto(double adelanto) {
+    public void setAdelanto(double aAdelanto) {
         this.adelanto = adelanto;
     }
 
@@ -87,7 +86,7 @@ public class Pago implements Serializable {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(boolean aStatus) {
         this.status = status;
     }
 }

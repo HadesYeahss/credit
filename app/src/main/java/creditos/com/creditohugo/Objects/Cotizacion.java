@@ -19,7 +19,7 @@ public class Cotizacion implements Serializable {
     @DatabaseField
     private double interest;
     @DatabaseField
-    private int noPayments;
+    private double noPayments;
     @DatabaseField
     private int typePayment;
     @DatabaseField
@@ -60,11 +60,11 @@ public class Cotizacion implements Serializable {
         this.interest = aInterest;
     }
 
-    public int getNoPayments() {
+    public double getNoPayments() {
         return noPayments;
     }
 
-    public void setNoPayments(int aNoPayments) {
+    public void setNoPayments(double aNoPayments) {
         this.noPayments = aNoPayments;
     }
 
