@@ -18,6 +18,8 @@ public class Pago implements Serializable {
     @DatabaseField
     private double pCapital;
     @DatabaseField
+    private double pIva;
+    @DatabaseField
     private double pTotal;
     @DatabaseField
     private double saldo;
@@ -31,7 +33,7 @@ public class Pago implements Serializable {
     }
 
     public void setIdPago(int aIdPago) {
-        this.idPago = idPago;
+        this.idPago = aIdPago;
     }
 
     public double getCapitalTotal() {
@@ -39,7 +41,7 @@ public class Pago implements Serializable {
     }
 
     public void setCapitalTotal(double aCapitalTotal) {
-        this.capitalTotal = capitalTotal;
+        this.capitalTotal = aCapitalTotal;
     }
 
     public double getpInteres() {
@@ -47,7 +49,7 @@ public class Pago implements Serializable {
     }
 
     public void setpInteres(double aPInteres) {
-        this.pInteres = pInteres;
+        this.pInteres = aPInteres;
     }
 
     public double getpCapital() {
@@ -55,7 +57,7 @@ public class Pago implements Serializable {
     }
 
     public void setpCapital(double aPCapital) {
-        this.pCapital = pCapital;
+        this.pCapital = aPCapital;
     }
 
     public double getpTotal() {
@@ -63,7 +65,7 @@ public class Pago implements Serializable {
     }
 
     public void setpTotal(double aPTotal) {
-        this.pTotal = pTotal;
+        this.pTotal = aPTotal;
     }
 
     public double getSaldo() {
@@ -71,7 +73,7 @@ public class Pago implements Serializable {
     }
 
     public void setSaldo(double aSaldo) {
-        this.saldo = saldo;
+        this.saldo = aSaldo;
     }
 
     public double getAdelanto() {
@@ -79,7 +81,7 @@ public class Pago implements Serializable {
     }
 
     public void setAdelanto(double aAdelanto) {
-        this.adelanto = adelanto;
+        this.adelanto = aAdelanto;
     }
 
     public boolean isStatus() {
@@ -87,6 +89,13 @@ public class Pago implements Serializable {
     }
 
     public void setStatus(boolean aStatus) {
-        this.status = status;
+        this.status = aStatus;
+    }
+
+    public double getpIva() {
+        return pIva;
+    }
+    public void setpIva(double apIva) {
+        this.pIva = apIva;
     }
 }
