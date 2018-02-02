@@ -13,6 +13,7 @@ import com.j256.ormlite.table.TableUtils;
 import java.sql.SQLException;
 
 import creditos.com.creditohugo.Objects.Cotizacion;
+import creditos.com.creditohugo.Objects.Pago;
 
 /**
  * Created by rigoberto.torres on 26/01/2018.
@@ -27,6 +28,10 @@ public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
     private Dao<Cotizacion, Integer> cotizacionDao = null;
     private RuntimeExceptionDao<Cotizacion, Integer>  cotizacionRuntimeDao = null;
 
+    // the DAO object we use to access the SimpleData table
+    private Dao<Pago, Integer> pagoDao = null;
+    private RuntimeExceptionDao<Pago, Integer>  pagoRuntimeDao = null;
+
     public DataBaseHelper(Context aContext) {
         super(aContext, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -36,6 +41,7 @@ public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DataBaseHelper.class.getName(), "create BD...");
             TableUtils.createTable(connectionSource, Cotizacion.class);
+            TableUtils.createTable(connectionSource, Pago.class);
         } catch (SQLException e) {
             Log.e(DataBaseHelper.class.getName(), "Can't create databases:", e);
             throw new RuntimeException(e);
@@ -48,6 +54,7 @@ public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
         try {
             Log.i(DataBaseHelper.class.getName(), "onUpgrade");
             TableUtils.dropTable(connectionSource, Cotizacion.class, true);
+            TableUtils.dropTable(connectionSource, Pago.class, true);
             // after we drop the old databases, we create the new ones
             onCreate(db, connectionSource);
         } catch (SQLException e) {
@@ -66,5 +73,17 @@ public class DataBaseHelper extends OrmLiteSqliteOpenHelper {
             cotizacionRuntimeDao = getRuntimeExceptionDao(Cotizacion.class);
         }
         return cotizacionRuntimeDao;
+    }
+
+    /**
+     * Obtiene el RuntimeExceptionDao de Parametro.
+     *
+     * @return parametroRuntimeDao dao.
+     */
+    public RuntimeExceptionDao<Pago, Integer> getPagoDao() {
+        if (pagoRuntimeDao == null) {
+            pagoRuntimeDao = getRuntimeExceptionDao(Pago.class);
+        }
+        return pagoRuntimeDao;
     }
 }

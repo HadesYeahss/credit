@@ -1,7 +1,5 @@
 package creditos.com.creditohugo.Controllers;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import creditos.com.creditohugo.Database.DataBaseEngine;
@@ -15,6 +13,7 @@ import creditos.com.creditohugo.Objects.Pago;
 public class NewCreditControler {
 
     private NewCreditIterface mListener;
+    private static final double IVA= 16;
 
     public interface NewCreditIterface {
         void saveComplete(boolean isSave);
@@ -27,10 +26,9 @@ public class NewCreditControler {
 
     public void createCotizacion(Cotizacion aCotizacion) {
         ArrayList<Pago> pagos = new ArrayList<Pago>();
-        double interesMes = 0;
-        double ivaInteresMes = 0;
-        double capitalMes = 0;
-        double iva = 16;
+        double interesMes;
+        double ivaInteresMes;
+        double capitalMes;
         double amount = aCotizacion.getAmount();
         double noPayments = aCotizacion.getNoPayments();
         int paymentsDivisor = 12;
@@ -40,8 +38,7 @@ public class NewCreditControler {
         if (aCotizacion.getTypePayment() == 3) {
             paymentsDivisor = 52;
         }
-        double factor = (aCotizacion.getInterest() / 100) / paymentsDivisor * (1 + (iva / 100));
-        //double pMensual = amount * ((factor) / (1 - Math.pow(((1 + factor)), -aCotizacion.getNoPayments())));
+        double factor = (aCotizacion.getInterest() / 100) / paymentsDivisor * (1 + (IVA / 100));
         double pMensual = amount * ((factor) / (1 - Math.pow(((1 + factor)), -paymentsDivisor)));
 
         for (int i = 0; i < aCotizacion.getNoPayments(); i++) {
@@ -49,7 +46,7 @@ public class NewCreditControler {
             interesMes = (amount / noPayments) *
                     (aCotizacion.getInterest() / 100) * (noPayments / paymentsDivisor);
 
-            ivaInteresMes = interesMes * (iva / 100);
+            ivaInteresMes = interesMes * (IVA / 100);
             capitalMes = pMensual - ivaInteresMes - interesMes;
             amount = amount - capitalMes;
             pago.setpCapital(capitalMes);
@@ -57,11 +54,12 @@ public class NewCreditControler {
             pago.setpIva(ivaInteresMes);
             pago.setpTotal(pMensual);
             pago.setSaldo(amount);
-            noPayments = noPayments--;
+            pago.setIdCotizacion(aCotizacion.getIdCotizacion());
             pagos.add(pago);
+            noPayments = noPayments--;
+            DataBaseEngine.getInstance().insertPago(pago);
 
         }
-        Log.d("-----------------------", "-------------");
 
 
         mListener.saveComplete(DataBaseEngine.getInstance().insertCotizacion(aCotizacion));
