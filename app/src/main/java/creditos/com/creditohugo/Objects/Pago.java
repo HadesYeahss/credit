@@ -27,6 +27,8 @@ public class Pago implements Serializable {
     private double adelanto;
     @DatabaseField
     private boolean status;
+    @DatabaseField
+    private int idCotizacion;
 
     public int getIdPago() {
         return idPago;
@@ -95,7 +97,16 @@ public class Pago implements Serializable {
     public double getpIva() {
         return pIva;
     }
+
     public void setpIva(double apIva) {
         this.pIva = apIva;
+    }
+
+    public int getIdCotizacion() {
+        return idCotizacion;
+    }
+
+    public void setIdCotizacion(int aIdCotizacion) {
+        this.idCotizacion = aIdCotizacion;
     }
 }
