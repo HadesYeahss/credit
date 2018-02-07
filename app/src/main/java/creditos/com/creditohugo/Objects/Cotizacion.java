@@ -24,6 +24,15 @@ public class Cotizacion implements Serializable {
     private int typePayment;
     @DatabaseField
     private Date datePayment;
+    @DatabaseField
+    private double total;
+    @DatabaseField
+    private double capitalTotal;
+    @DatabaseField
+    private double interestTotal;
+    @DatabaseField
+    private double ivaTotal;
+
 
     public Cotizacion() {
     }
@@ -82,5 +91,37 @@ public class Cotizacion implements Serializable {
 
     public void setDatePayment(Date aDatePayment) {
         this.datePayment = aDatePayment;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double aTotal) {
+        this.total = aTotal;
+    }
+
+    public double getCapitalTotal() {
+        return capitalTotal;
+    }
+
+    public void setCapitalTotal(double aCapitalTotal) {
+        this.capitalTotal = aCapitalTotal;
+    }
+
+    public double getInterestTotal() {
+        return interestTotal;
+    }
+
+    public void setInterestTotal(double aInterestTotal) {
+        this.interestTotal = aInterestTotal;
+    }
+
+    public double getIvaTotal() {
+        return ivaTotal;
+    }
+
+    public void setIvaTotal(double aIvaTotal) {
+        this.ivaTotal = aIvaTotal;
     }
 }

@@ -3,6 +3,7 @@ package creditos.com.creditohugo.Objects;
 import com.j256.ormlite.field.DatabaseField;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by rigoberto.torres on 26/01/2018.
@@ -27,6 +28,8 @@ public class Pago implements Serializable {
     private double adelanto;
     @DatabaseField
     private boolean status;
+    @DatabaseField
+    private Date diaPago;
     @DatabaseField
     private int idCotizacion;
 
@@ -100,6 +103,14 @@ public class Pago implements Serializable {
 
     public void setpIva(double apIva) {
         this.pIva = apIva;
+    }
+
+    public Date getDiaPago() {
+        return diaPago;
+    }
+
+    public void setDiaPago(Date aDiaPago) {
+        this.diaPago = aDiaPago;
     }
 
     public int getIdCotizacion() {

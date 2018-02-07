@@ -29,14 +29,28 @@
     <string name="fecha_pago">Fecha de pago:</string>
     <string name="boton_calcular">CALCULAR</string>
 
-    <string name="monto_credito_detalle">Total de la deuda: %s</string>
-    <string name="interes_anual_detalle">Interés anual(%):</string>
+
+    <!-- detalle de cotizacion-->
+    <string name="detalle_monto_total">$ %s</string>
+    <string name="detalle_monto_total_footer">Total Para %s</string>
+    <string name="detalle_monto_interes">%s</string>
+    <string name="detalle_monto_interes_footer">Interes</string>
+    <string name="detalle_monto_solicitado">$ %s</string>
+    <string name="detalle_monto_solicitado_footer">Total Solicitado</string>
+    <string name="detalle_monto_interes_total">$ %s</string>
+    <string name="detalle_monto_interes_total_footer">Interes a Pagar</string>
+    <string name="detalle_pagos">%s pagos</string>
+
+
+
     <string name="tipo_pago_detalle">Tipo de pago: </string>
     <string name="numero_pagos_detalle">No. de pagos: %s</string>
     <string name="fecha_de_pagos_detalle">Fecha de pago: %s</string>
     <string name="dashboard">DASHBOARD</string>
     <string name="alta_prestamo">CALCULAR PRESTAMO</string>
     <string name="campo_invalido">Campo Invalido</string>
+    <string name="detalle_prestamo_toolbar">VISTA PREVIA</string>
+    <string name="interes_detail">Interes</string>
 
     <string-array name="number_of_payments_array">
         <item>No. de Pagos</item>

@@ -21,14 +21,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import creditos.com.creditohugo.Controllers.NewCreditControler;
+import creditos.com.creditohugo.Controllers.NewCreditController;
 import creditos.com.creditohugo.Objects.Cotizacion;
 import creditos.com.creditohugo.R;
 
 public class NewCreditActivity extends AppCompatActivity
-        implements View.OnClickListener, NewCreditControler.NewCreditIterface {
+        implements View.OnClickListener, NewCreditController.NewCreditIterface {
 
-    private NewCreditControler mController;
+    private NewCreditController mController;
     private Calendar mCalendar;
     private DatePickerDialog.OnDateSetListener mDate;
     public static final int RESULT_NEW_ID = 1;
@@ -54,7 +54,7 @@ public class NewCreditActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mController = new NewCreditControler(this);
+        mController = new NewCreditController(this);
 
         mCalendar = Calendar.getInstance();
         mName = (EditText) findViewById(R.id.edit_text_credit_name);
