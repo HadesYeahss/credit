@@ -55,8 +55,8 @@ public class CotizacionRecyclerAdapter extends RecyclerView.Adapter<CotizacionRe
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Cotizacion current = mCotizaciones.get(position);
-        holder.mTextName.setText(current.getName());
-        holder.mTextTotal.setText(String.valueOf(current.getAmount()));
+        holder.mTextName.setText(current.getmName());
+        holder.mTextTotal.setText(String.valueOf(current.getmAmount()));
         holder.mRootContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

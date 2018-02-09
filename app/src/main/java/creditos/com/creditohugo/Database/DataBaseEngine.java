@@ -26,7 +26,9 @@ public enum DataBaseEngine {
      *
      * @return singletonDB;
      */
-    public static DataBaseEngine getInstance() {return INSTANCE;}
+    public static DataBaseEngine getInstance() {
+        return INSTANCE;
+    }
 
     /**
      * inserCotizacion
@@ -36,19 +38,43 @@ public enum DataBaseEngine {
      * @return true or false.
      */
     public boolean insertCotizacion(Cotizacion aCotizacione) {
-        Log.d(TAG,"Inserta cotizacion");
+        Log.d(TAG, "Inserta cotizacion");
         RuntimeExceptionDao<Cotizacion, Integer> cotizacionDao =
                 getDatabaseHelper().getCotizacionDao();
         //First delete all the previous parametros
-        cotizacionDao.createOrUpdate(aCotizacione);
+        cotizacionDao.create(aCotizacione);
         return true;
     }
+
+    /**
+     * updateCotizacion
+     * Update a list of parameters.
+     *
+     * @param aCotizacion the list with parameters.
+     * @return true or false.
+     */
+    public boolean updateCotizacion(Cotizacion aCotizacion) {
+        Log.d(TAG, "Update cotizacion");
+        RuntimeExceptionDao<Cotizacion, Integer> cotizacionDao =
+                getDatabaseHelper().getCotizacionDao();
+        //First delete all the previous parametros
+        cotizacionDao.update(aCotizacion);
+        return true;
+    }
+
     public List<Cotizacion> getCotizaciones() {
-        Log.d(TAG,"consulta contizaciones");
+        Log.d(TAG, "consulta contizaciones");
         RuntimeExceptionDao<Cotizacion, Integer> cotizacionDao =
                 getDatabaseHelper().getCotizacionDao();
         //First delete all the previous parametros
         return cotizacionDao.queryForAll();
+    }
+    public Cotizacion getCotizacionForId(Cotizacion aCotizacion) {
+        Log.d(TAG, "consulta contizacion");
+        RuntimeExceptionDao<Cotizacion, Integer> cotizacionDao =
+                getDatabaseHelper().getCotizacionDao();
+        //First delete all the previous parametros
+        return cotizacionDao.queryForId(aCotizacion.getmId());
     }
 
     /**
@@ -59,19 +85,27 @@ public enum DataBaseEngine {
      * @return true or false.
      */
     public boolean insertPago(Pago aPago) {
-        Log.d(TAG,"Inserta pago");
+        Log.d(TAG, "Inserta pago");
         RuntimeExceptionDao<Pago, Integer> pagoDao =
                 getDatabaseHelper().getPagoDao();
         //First delete all the previous parametros
         pagoDao.create(aPago);
         return true;
     }
-    public List<Pago> getPagos() {
-        Log.d(TAG,"Consulta pago");
+    /**
+     * updatePago
+     * Update a list of parameters.
+     *
+     * @param aPago the list with parameters.
+     * @return true or false.
+     */
+    public boolean updatePago(Pago aPago) {
+        Log.d(TAG, "Update pago");
         RuntimeExceptionDao<Pago, Integer> pagoDao =
                 getDatabaseHelper().getPagoDao();
         //First delete all the previous parametros
-        return pagoDao.queryForAll();
+        pagoDao.update(aPago);
+        return true;
     }
 
     /**

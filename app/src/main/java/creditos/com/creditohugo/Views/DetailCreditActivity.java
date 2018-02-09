@@ -64,23 +64,23 @@ public class DetailCreditActivity extends AppCompatActivity implements
     private void setData(Cotizacion cotizacion) {
 
         mTotal.setText(getResources().getString(R.string.detalle_monto_total,
-                String.valueOf(Utils.round(cotizacion.getTotal(),2))));
+                String.valueOf(Utils.round(cotizacion.getmTotal(),2))));
 
         mTotalName.setText(getResources().getString(R.string.detalle_monto_total_footer,
-                cotizacion.getName()));
+                cotizacion.getmName()));
 
         mInterestPercentage.setText(getResources().getString(R.string.detalle_monto_interes,
-                String.valueOf(cotizacion.getInterest()).concat(" %")));
+                String.valueOf(cotizacion.getmInterest()).concat(" %")));
 
         mTotalCapital.setText( getResources().getString(R.string.detalle_monto_solicitado,
-                String.valueOf(cotizacion.getAmount())));
+                String.valueOf(cotizacion.getmAmount())));
 
         mTotalInterest.setText(getResources().getString(R.string.detalle_monto_interes_total,
-                String.valueOf(Utils.round(cotizacion.getInterestTotal(),2))));
+                String.valueOf(Utils.round(cotizacion.getmInterestTotal(),2))));
 
 
         mNoPayments.setText(getResources().getString(R.string.detalle_pagos,
-                (int)Utils.round(cotizacion.getNoPayments(),0)));
+                (int)Utils.round(cotizacion.getmNoPayments(),0)));
 
     }
 

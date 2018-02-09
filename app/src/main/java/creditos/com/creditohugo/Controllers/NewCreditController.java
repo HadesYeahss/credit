@@ -32,26 +32,27 @@ public class NewCreditController {
     public void createCotizacion(Cotizacion aCotizacion) {
         double interesMes, ivaInteresMes, capitalMes;
         double totalInteres = 0, totalIva = 0, totalCapital = 0;
-        double amount = aCotizacion.getAmount();
-        double noPayments = aCotizacion.getNoPayments();
+        double amount = aCotizacion.getmAmount();
+        double noPayments = aCotizacion.getmNoPayments();
         int paymentsDivisor = 12;
-        if (aCotizacion.getTypePayment() == 2) {
+        if (aCotizacion.getmTypePayment() == 2) {
             paymentsDivisor = 24;
         }
-        if (aCotizacion.getTypePayment() == 3) {
+        if (aCotizacion.getmTypePayment() == 3) {
             paymentsDivisor = 52;
         }
-        double factor = (aCotizacion.getInterest() / 100) / paymentsDivisor * (1 + (IVA / 100));
+        double factor = (aCotizacion.getmInterest() / 100) / paymentsDivisor * (1 + (IVA / 100));
         double pMensual = amount * ((factor) / (1 - Math.pow(((1 + factor)), -paymentsDivisor)));
         double pTotal = pMensual * noPayments;
-        aCotizacion.setTotal(pTotal);
+        aCotizacion.setmTotal(pTotal);
 
-        Date dateNow = new Date();
+        Date dateInitial = aCotizacion.getmDatePayment();
 
-        for (int i = 0; i < aCotizacion.getNoPayments(); i++) {
-            Pago pago = new Pago();
+        DataBaseEngine.getInstance().insertCotizacion(aCotizacion);
+        for (int i = 0; i < aCotizacion.getmNoPayments(); i++) {
+
             interesMes = (amount / noPayments) *
-                    (aCotizacion.getInterest() / 100) * (noPayments / paymentsDivisor);
+                    (aCotizacion.getmInterest() / 100) * (noPayments / paymentsDivisor);
 
             ivaInteresMes = interesMes * (IVA / 100);
             capitalMes = pMensual - ivaInteresMes - interesMes;
@@ -61,43 +62,59 @@ public class NewCreditController {
             totalCapital = totalCapital + capitalMes;
             totalIva = totalIva + ivaInteresMes;
 
-            pago.setpCapital(capitalMes);
-            pago.setpInteres(interesMes);
-            pago.setpIva(ivaInteresMes);
-            pago.setpTotal(pMensual);
-            pago.setSaldo(amount);
-            pago.setIdCotizacion(aCotizacion.getIdCotizacion());
 
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-            dateNow = calculateDatePayment(aCotizacion, dateNow);
-            Log.d("test", df.format(dateNow));
+            dateInitial = calculateDatePayment(aCotizacion, dateInitial, i);
+            Log.d("test", df.format(dateInitial));
 
             noPayments = noPayments--;
+
+            Pago pago = new Pago(aCotizacion, interesMes, capitalMes,ivaInteresMes, pMensual,
+                    amount, false,dateInitial);
 
             DataBaseEngine.getInstance().insertPago(pago);
 
         }
-        aCotizacion.setInterestTotal(totalInteres);
-        aCotizacion.setCapitalTotal(totalCapital);
-        aCotizacion.setIvaTotal(totalIva);
+        aCotizacion.setmInterestTotal(totalInteres);
+        aCotizacion.setmCapitalTotal(totalCapital);
+        aCotizacion.setmIvaTotal(totalIva);
+        DataBaseEngine.getInstance().updateCotizacion(aCotizacion);
 
-
-        mListener.saveComplete(DataBaseEngine.getInstance().insertCotizacion(aCotizacion));
-    }
-
-    private Date calculateDatePayment(Cotizacion aCotizacion, Date old) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(old);
-        if (aCotizacion.getTypePayment() == 1) {
-            cal.add(Calendar.MONTH, 1);
-            cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-        } else if (aCotizacion.getTypePayment() == 2) {
-            if (old.getDay() < 15) {
+        /*if (aCotizacion.getmTypePayment() == 2) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(aCotizacion.getmDatePayment());
+            if (aCotizacion.getmDatePayment().getDate() < 15) {
                 cal.set(Calendar.DAY_OF_MONTH, 15);
             } else {
                 cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
             }
-        } else if (aCotizacion.getTypePayment() == 3) {
+            Date past = cal.getTime();
+            for (int i = 0; i < pagos.size(); i++) {
+
+                pagos.get(i).setmDiaPago(past);
+                cal.setTime(past);
+                if (cal.get(Calendar.DAY_OF_MONTH) > 15) {
+                    cal.add(Calendar.MONTH, 1);
+                    cal.set(Calendar.DAY_OF_MONTH, 15);
+                }
+                past = cal.getTime();
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                Log.d("test", df.format(past));
+            }
+        }*/
+
+        mListener.saveComplete(true);
+    }
+
+    private Date calculateDatePayment(Cotizacion aCotizacion, Date old, int i) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(old);
+        if (aCotizacion.getmTypePayment() == 1) {
+            if (i != 0) {
+                cal.add(Calendar.MONTH, 1);
+            }
+            cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+        } else if (aCotizacion.getmTypePayment() == 3) {
             cal.add(Calendar.DAY_OF_YEAR, 7);
         }
         Date date = cal.getTime();

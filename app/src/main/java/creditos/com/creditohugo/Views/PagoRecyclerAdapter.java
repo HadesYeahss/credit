@@ -56,7 +56,7 @@ public class PagoRecyclerAdapter extends RecyclerView.Adapter<PagoRecyclerAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         final Pago current = mPagos.get(position);
         holder.mTextName.setText("test");
-        holder.mTextTotal.setText(String.valueOf(current.getpTotal()));
+        holder.mTextTotal.setText(String.valueOf(current.getmPTotal()));
         holder.mRootContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

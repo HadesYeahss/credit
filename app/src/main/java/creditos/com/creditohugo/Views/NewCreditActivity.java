@@ -113,20 +113,20 @@ public class NewCreditActivity extends AppCompatActivity
             case R.id.btn_guardar:
                 if (validateFields()) {
                     Cotizacion cotizacion = new Cotizacion();
-                    cotizacion.setName(mName.getText().toString());
-                    cotizacion.setAmount(Double.parseDouble(mAmount.getText().toString()));
-                    cotizacion.setInterest(Double.parseDouble(mInterest.getText().toString()));
-                    cotizacion.setNoPayments(Integer.parseInt(mNoPayments.getSelectedItem().toString()));
+                    cotizacion.setmName(mName.getText().toString());
+                    cotizacion.setmAmount(Double.parseDouble(mAmount.getText().toString()));
+                    cotizacion.setmInterest(Double.parseDouble(mInterest.getText().toString()));
+                    cotizacion.setmNoPayments(Integer.parseInt(mNoPayments.getSelectedItem().toString()));
                     long dateMil = mCalendar.getTimeInMillis();
                     if (mMensual.isChecked()) {
-                        cotizacion.setTypePayment(1);
+                        cotizacion.setmTypePayment(1);
                     } else if (mQuincenal.isChecked()) {
-                        cotizacion.setTypePayment(2);
+                        cotizacion.setmTypePayment(2);
                     } else {
-                        cotizacion.setTypePayment(3);
+                        cotizacion.setmTypePayment(3);
                     }
                     Date date = new Date(dateMil);
-                    cotizacion.setDatePayment(date);
+                    cotizacion.setmDatePayment(date);
                     mController.createCotizacion(cotizacion);
                 }
                 break;

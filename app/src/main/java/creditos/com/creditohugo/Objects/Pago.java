@@ -1,123 +1,181 @@
 package creditos.com.creditohugo.Objects;
 
-import com.j256.ormlite.field.DatabaseField;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-import java.io.Serializable;
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
 import java.util.Date;
 
 /**
  * Created by rigoberto.torres on 26/01/2018.
  */
-public class Pago implements Serializable {
+@DatabaseTable
+public class Pago implements Parcelable {
+
+
+    public static final String COTIZACION_ID_FIELD_NAME = "cotizacion_id";
+
 
     @DatabaseField(generatedId = true)
-    private int idPago;
+    private int mId;
+    @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = COTIZACION_ID_FIELD_NAME)
+    private Cotizacion mCotizacion;
     @DatabaseField
-    private double capitalTotal;
+    private double mPInteres;
     @DatabaseField
-    private double pInteres;
+    private double mPCapital;
     @DatabaseField
-    private double pCapital;
+    private double mPIva;
     @DatabaseField
-    private double pIva;
+    private double mPTotal;
     @DatabaseField
-    private double pTotal;
+    private double mSaldo;
     @DatabaseField
-    private double saldo;
+    private double mAdelanto;
     @DatabaseField
-    private double adelanto;
-    @DatabaseField
-    private boolean status;
-    @DatabaseField
-    private Date diaPago;
-    @DatabaseField
-    private int idCotizacion;
+    private boolean mStatus;
+    @DatabaseField(dataType = DataType.DATE_STRING)
+    private Date mDiaPago;
 
-    public int getIdPago() {
-        return idPago;
+    public Pago() {
+
     }
 
-    public void setIdPago(int aIdPago) {
-        this.idPago = aIdPago;
+    public Pago(Cotizacion aCotizacion, double aPInteres, double aPCapital,
+                double aPIva, double aPTotal, double aAdelanto, boolean aStatus,
+                Date aDiaPago) {
+        this.mCotizacion = aCotizacion;
+        this.mPInteres = aPInteres;
+        this.mPCapital = aPCapital;
+        this.mPIva = aPIva;
+        this.mPTotal = aPTotal;
+        this.mAdelanto = aAdelanto;
+        this.mStatus = aStatus;
+        this.mDiaPago = aDiaPago;
     }
 
-    public double getCapitalTotal() {
-        return capitalTotal;
+    protected Pago(Parcel in) {
+        mId = in.readInt();
+        mCotizacion = in.readParcelable(Cotizacion.class.getClassLoader());
+        mPInteres = in.readDouble();
+        mPCapital = in.readDouble();
+        mPIva = in.readDouble();
+        mPTotal = in.readDouble();
+        mSaldo = in.readDouble();
+        mAdelanto = in.readDouble();
+        mStatus = in.readByte() != 0;
     }
 
-    public void setCapitalTotal(double aCapitalTotal) {
-        this.capitalTotal = aCapitalTotal;
+    public static final Creator<Pago> CREATOR = new Creator<Pago>() {
+        @Override
+        public Pago createFromParcel(Parcel in) {
+            return new Pago(in);
+        }
+
+        @Override
+        public Pago[] newArray(int size) {
+            return new Pago[size];
+        }
+    };
+
+    public int getmId() {
+        return mId;
     }
 
-    public double getpInteres() {
-        return pInteres;
+    public void setmId(int aId) {
+        this.mId = aId;
     }
 
-    public void setpInteres(double aPInteres) {
-        this.pInteres = aPInteres;
+    public Cotizacion getmCotizacion() {
+        return mCotizacion;
     }
 
-    public double getpCapital() {
-        return pCapital;
+    public void setmCotizacion(Cotizacion aCotizacion) {
+        this.mCotizacion = aCotizacion;
     }
 
-    public void setpCapital(double aPCapital) {
-        this.pCapital = aPCapital;
+    public double getmPInteres() {
+        return mPInteres;
     }
 
-    public double getpTotal() {
-        return pTotal;
+    public void setmPInteres(double aPInteres) {
+        this.mPInteres = aPInteres;
     }
 
-    public void setpTotal(double aPTotal) {
-        this.pTotal = aPTotal;
+    public double getmPCapital() {
+        return mPCapital;
     }
 
-    public double getSaldo() {
-        return saldo;
+    public void setmPCapital(double aPCapital) {
+        this.mPCapital = aPCapital;
     }
 
-    public void setSaldo(double aSaldo) {
-        this.saldo = aSaldo;
+    public double getmPIva() {
+        return mPIva;
     }
 
-    public double getAdelanto() {
-        return adelanto;
+    public void setmPIva(double aPIva) {
+        this.mPIva = aPIva;
     }
 
-    public void setAdelanto(double aAdelanto) {
-        this.adelanto = aAdelanto;
+    public double getmPTotal() {
+        return mPTotal;
     }
 
-    public boolean isStatus() {
-        return status;
+    public void setmPTotal(double aPTotal) {
+        this.mPTotal = aPTotal;
     }
 
-    public void setStatus(boolean aStatus) {
-        this.status = aStatus;
+    public double getmSaldo() {
+        return mSaldo;
     }
 
-    public double getpIva() {
-        return pIva;
+    public void setmSaldo(double aSaldo) {
+        this.mSaldo = aSaldo;
     }
 
-    public void setpIva(double apIva) {
-        this.pIva = apIva;
+    public double getmAdelanto() {
+        return mAdelanto;
     }
 
-    public Date getDiaPago() {
-        return diaPago;
+    public void setmAdelanto(double aAdelanto) {
+        this.mAdelanto = aAdelanto;
     }
 
-    public void setDiaPago(Date aDiaPago) {
-        this.diaPago = aDiaPago;
+    public boolean ismStatus() {
+        return mStatus;
     }
 
-    public int getIdCotizacion() {
-        return idCotizacion;
+    public void setmStatus(boolean aStatus) {
+        this.mStatus = aStatus;
     }
 
-    public void setIdCotizacion(int aIdCotizacion) {
-        this.idCotizacion = aIdCotizacion;
+    public Date getmDiaPago() {
+        return mDiaPago;
+    }
+
+    public void setmDiaPago(Date aDiaPago) {
+        this.mDiaPago = aDiaPago;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(mId);
+        parcel.writeParcelable(mCotizacion, i);
+        parcel.writeDouble(mPInteres);
+        parcel.writeDouble(mPCapital);
+        parcel.writeDouble(mPIva);
+        parcel.writeDouble(mPTotal);
+        parcel.writeDouble(mSaldo);
+        parcel.writeDouble(mAdelanto);
+        parcel.writeByte((byte) (mStatus ? 1 : 0));
     }
 }
