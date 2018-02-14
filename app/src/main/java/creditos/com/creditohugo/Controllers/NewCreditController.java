@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -80,28 +81,44 @@ public class NewCreditController {
         aCotizacion.setmIvaTotal(totalIva);
         DataBaseEngine.getInstance().updateCotizacion(aCotizacion);
 
-        /*if (aCotizacion.getmTypePayment() == 2) {
+        Cotizacion cotizacion = DataBaseEngine.getInstance().getCotizacionForId(aCotizacion);
+
+        if (cotizacion.getmTypePayment() == 2) {
             Calendar cal = Calendar.getInstance();
-            cal.setTime(aCotizacion.getmDatePayment());
-            if (aCotizacion.getmDatePayment().getDate() < 15) {
+            cal.setTime(cotizacion.getmDatePayment());
+            boolean isQuince = false;
+            if (cotizacion.getmDatePayment().getDate() < 15) {
                 cal.set(Calendar.DAY_OF_MONTH, 15);
+                isQuince = true;
             } else {
                 cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
             }
             Date past = cal.getTime();
+            ArrayList<Pago> pagos = new ArrayList<Pago>(cotizacion.getmPagos());
             for (int i = 0; i < pagos.size(); i++) {
 
-                pagos.get(i).setmDiaPago(past);
-                cal.setTime(past);
-                if (cal.get(Calendar.DAY_OF_MONTH) > 15) {
+                if (i == 0) {
+                    pagos.get(i).setmDiaPago(past);
+                    DataBaseEngine.getInstance().updatePago(pagos.get(i));
+                    past = cal.getTime();
+                    isQuince = !isQuince;
+                    continue;
+                }
+
+                if (isQuince) {
                     cal.add(Calendar.MONTH, 1);
                     cal.set(Calendar.DAY_OF_MONTH, 15);
+                } else {
+                    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));
                 }
+                isQuince = !isQuince;
+                pagos.get(i).setmDiaPago(past);
+                DataBaseEngine.getInstance().updatePago(pagos.get(i));
                 past = cal.getTime();
                 DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-                Log.d("test", df.format(past));
+                Log.d("PAGO", df.format(past));
             }
-        }*/
+        }
 
         mListener.saveComplete(true);
     }

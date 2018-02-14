@@ -34,15 +34,15 @@ public enum DataBaseEngine {
      * inserCotizacion
      * Insert a list of parameters.
      *
-     * @param aCotizacione the list with parameters.
+     * @param aCotizacion the list with parameters.
      * @return true or false.
      */
-    public boolean insertCotizacion(Cotizacion aCotizacione) {
+    public boolean insertCotizacion(Cotizacion aCotizacion) {
         Log.d(TAG, "Inserta cotizacion");
         RuntimeExceptionDao<Cotizacion, Integer> cotizacionDao =
                 getDatabaseHelper().getCotizacionDao();
         //First delete all the previous parametros
-        cotizacionDao.create(aCotizacione);
+        cotizacionDao.create(aCotizacion);
         return true;
     }
 
