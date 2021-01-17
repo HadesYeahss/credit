@@ -67,45 +67,6 @@
     "visibility": "private",
     "accessHash": "",
     "products": {
-      "QU886HL0HYESMLMX": {
-        "id": 2287014,
-        "name": "Molde Rosca Clásica De Metal Queen Sense",
-        "wishListPrice": 289,
-        "slug": "molde-rosca-cla-sica-de-metal-queen-sense-trbphh",
-        "url": "/mapi/v1/p/molde-rosca-cla-sica-de-metal-queen-sense-trbphh",
-        "image": "https://i.linio.com/p/2a19511bb5fa692c880fcbee6141883f-product.jpg",
-        "linioPlusLevel": 0,
-        "conditionType": "new",
-        "freeShipping": false,
-        "imported": true,
-        "active": true
-      },
-      "RE244HB0KUT3SLMX": {
-        "id": 2399871,
-        "name": "Secadora de Cabello Fast Finish dobre Turbina REMINGTON D3710 - Rojo con Accesorios",
-        "wishListPrice": 499,
-        "slug": "secadora-de-cabello-fast-finish-dobre-turbina-remington-d3710-rojo-con-accesorios-toitjt",
-        "url": "/mapi/v1/p/secadora-de-cabello-fast-finish-dobre-turbina-remington-d3710-rojo-con-accesorios-toitjt",
-        "image": "https://i.linio.com/p/c62c8575d8e16e21a45d27de7d4ed7cb-product.jpg",
-        "linioPlusLevel": 1,
-        "conditionType": "new",
-        "freeShipping": false,
-        "imported": false,
-        "active": true
-      },
-      "OS100HB0QE16SLMX": {
-        "id": 2317862,
-        "name": "Secadora de Cabello Profesional Modelo HCSTHD1400",
-        "wishListPrice": 599,
-        "slug": "secadora-de-cabello-profesional-modelo-hcsthd1400-s1howb",
-        "url": "/mapi/v1/p/secadora-de-cabello-profesional-modelo-hcsthd1400-s1howb",
-        "image": "https://i.linio.com/p/96eb4554661f1b61d1f4458dd234808d-product.jpg",
-        "linioPlusLevel": 2,
-        "conditionType": "new",
-        "freeShipping": false,
-        "imported": false,
-        "active": true
-      }
     }
   }
 ]
