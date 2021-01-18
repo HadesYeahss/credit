@@ -1,0 +1,72 @@
+[
+  {
+    "id": 408483,
+    "name": "Mi lista de favoritos",
+    "description": "Mi lista de favoritos",
+    "default": false,
+    "owner": {
+      "name": "Doctor Evil",
+      "email": "customer-53284@linio.com",
+      "linioId": "52xcfee"
+    },
+    "createdAt": "2016-06-10T23:04:23+0000",
+    "visibility": "public",
+    "products": {
+      "OM485HB98ZURLMX": {
+        "id": 2286984,
+        "name": "Báscula Digital Omron HN 289 - Aqua",
+        "wishListPrice": 399,
+        "slug": "ba-scula-digital-omron-hn-289-aqua-x2pl84",
+        "url": "/mapi/v1/p/ba-scula-digital-omron-hn-289-aqua-x2pl84",
+        "image": "https://i.linio.com/p/c97a50b1c6c7e3bb2c48c1b4104d5975-product.jpg",
+        "linioPlusLevel": 1,
+        "conditionType": "refurbished",
+        "freeShipping": true,
+        "imported": true,
+        "active": true
+      },
+      "PH145HB1GKBF2LMX": {
+        "id": 2317863,
+        "name": "Secadora Cabello Philips HP8232/01 Iones Thermo Protect",
+        "wishListPrice": 899,
+        "slug": "secadora-cabello-philips-hp8232-01-iones-thermo-protect-lcvnkj",
+        "url": "/mapi/v1/p/secadora-cabello-philips-hp8232-01-iones-thermo-protect-lcvnkj",
+        "image": "https://i.linio.com/p/f1a6240aad2fca51f065da7a39f4f37d-product.jpg",
+        "linioPlusLevel": 1,
+        "conditionType": "refurbished",
+        "freeShipping": false,
+        "imported": false,
+        "active": true
+      },
+      "WE183HL0AMMVALMX": {
+        "id": 2287001,
+        "name": "Bote De Basura Con Pedal  3 Lt",
+        "wishListPrice": 269,
+        "slug": "bote-de-basura-con-pedal-3-lt-wydxt2",
+        "url": "/mapi/v1/p/bote-de-basura-con-pedal-3-lt-wydxt2",
+        "image": "https://i.linio.com/p/8c59451780d21c17cc4ec3c6de0df79c-product.jpg",
+        "linioPlusLevel": 0,
+        "conditionType": "new",
+        "freeShipping": false,
+        "imported": true,
+        "active": true
+      }
+    }
+  },
+  {
+    "id": 427057,
+    "name": "Séneca 148",
+    "description": "Séneca 148",
+    "default": false,
+    "owner": {
+      "name": "Angela Ursic Bedoya",
+      "email": "angela.ursic@linio.com",
+      "linioId": "qe54zj"
+    },
+    "createdAt": "2016-07-23T03:41:29+0000",
+    "visibility": "private",
+    "accessHash": "",
+    "products": {
+    }
+  }
+]
